@@ -69,7 +69,7 @@ streamlit run main.py
 ---
 
 ## 📹 Demo Video
-🎥 <video controls src="Demo vid.mp4" title="Title"></video>
+🎥 [![Watch Video](https://img.icons8.com/fluency/48/youtube-play.png)](https://github.com/aishwaryareddy05/STUDY-SNAP-AI/releases/download/v1.0/Demo.vid.mp4)
 
 
 ---
