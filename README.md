@@ -69,7 +69,7 @@ streamlit run main.py
 ---
 
 ## 📹 Demo Video
-🎥 <video controls src="20250318-1354-01.4533325.mp4" title="Title"></video>
+🎥 <video controls src="Demo vid.mp4" title="Title"></video>
 
 
 ---
