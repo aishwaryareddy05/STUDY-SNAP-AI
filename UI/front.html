@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Processing App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .form-group textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+        .summary-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .expansion-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+        .expansion-box h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="extra.js"></script>
+    <div class="container">
+        <h2>Our app</h2>
+        <div class="form-group">
+            <label for="paragraph">Enter your paragraph:</label>
+            <textarea id="paragraph" placeholder="Type or paste your paragraph here..."></textarea>
+        </div>
+        <div>
+            <h3>OR</h3>
+        </div>
+        <div class = "form-group">
+            <label for="myfile">Select a file:</label>
+            <input type="file" id="myfile" name="myfile">
+        </div>
+
+        <div class="form-group">
+            <label for="action">Choose an action:</label>
+            <select id="action">
+                <option value="summarize">Summarize</option>
+                <option value="expand">Contextual Expansion</option>
+                <option value="practice">Practice Questions</option>
+            </select>
+        </div>
+
+        <button class="btn" onclick="processText()">Process</button>
+        <div id="result"></div>
+        <div id="expansion-container"></div>
+        <div id="summary-container"></div>
+    </div>
+
+    <script>
+        function processText() {
+            var paragraph = document.getElementById("paragraph").value;
+            var action = document.getElementById("action").value;
+            var resultDiv = document.getElementById("result");
+            if (action === "summarize"){
+                var summary = generateSummary(paragraph);
+                appendSummaryBox(summary);
+            }
+            else if(action ==="expand"){
+                var expansion = generateExpansion(paragraph);
+                appendExpansionBox(expansion);
+            }
+            else if(action ==="practice"){
+                window.location.href = "quiz.html";
+            }
+        }
+        function generateSummary(paragraph) {
+            paragraphreturn = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+            return paragraphreturn;
+        }
+        function generateExpansion(paragraph){
+            paragraphreturn = "Lorem Ipsum is simply dummy text of the printing and typesetting industry";
+            return paragraphreturn;
+        }
+        function appendSummaryBox(summary){
+            var summaryBox = document.createElement("div");
+            summaryBox.classList.add("summary-box");
+            summaryBox.innerHTML = "<h3>Summary of above text/file</h3><p>" + summary + "</p>";
+            document.getElementById("summary-container").appendChild(summaryBox);
+        }
+        function appendExpansionBox(expansion) {
+            var expansionBox = document.createElement("div");
+            expansionBox.classList.add("expansion-box");
+            expansionBox.innerHTML = "<h3>Expanded Text</h3><p>" + expansion + "</p>";
+            document.getElementById("expansion-container").appendChild(expansionBox);
+        }
+    </script>
+
+    </script>
+
+</body>
+</html>
